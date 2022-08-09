@@ -1,3 +1,5 @@
+let myLibrary = [];
+
 function Library(){
 
 }
