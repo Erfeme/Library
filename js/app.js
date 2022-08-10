@@ -94,28 +94,28 @@ btn.addEventListener('click',(e)=>{
     btnCancelar = document.createElement('button');
     btnCancelar.innerText = 'Cancelar';
     btnAceptar.innerText = 'Aceptar';
+    
 
     btnCancelar.addEventListener('click', (e)=>{
         btn.disabled = false;
         form.remove();
     })
 
-    form.addEventListener('submit',(e)=>{
-        e.preventDefault();
-    })
-
     btnAceptar.addEventListener('click',(e)=>{
+        e.preventDefault();
         title = titleinput.value;
         author = authorInput.value;
         pages = pagesInput.value;
         read = false;
-        if (trueInput.checked = true){
+        if (trueInput.checked == true){
             read = true;
         }
         info = infoinput.value;
 
         libro = new Book(title,author,pages,read,info);
         myLibrary.push(libro);
+        btn.disabled = false;
+        spawnLibrary();
     })
 
     
@@ -191,7 +191,7 @@ let myLibrary = [/*
 ];
 
 spawnLibrary = ()=>{
-
+    container.innerHTML = "";
     for(i = 0; i <myLibrary.length; i++){
 
         var div = document.createElement('div');
