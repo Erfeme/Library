@@ -2,9 +2,13 @@ const btn = document.querySelector('.newBook');
 const container = document.querySelector('.container');
 
 btn.addEventListener('click',(e)=>{
+    var form = document.createElement('form');
+    var formtitle = document.createElement('h2');
+    var titlelbl = document.createElement('label');
+    var titleinput = document.createElement('input');
     
 })
-
+ 
 let myLibrary = [
     {
         title: 'Las mil y una noches',
@@ -67,6 +71,7 @@ spawnLibrary = ()=>{
         var pages = document.createElement('p');
         var read = document.createElement('button');
         var info = document.createElement('p');
+        var del = document.createElement('button');
         title.innerText = myLibrary[i].title;
         author.innerText = 'Autor: ' + myLibrary[i].author;
         pages.innerText = 'Páginas: ' + myLibrary[i].pages;
