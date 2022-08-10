@@ -2,26 +2,109 @@ const btn = document.querySelector('.newBook');
 const container = document.querySelector('.container');
 
 btn.addEventListener('click',(e)=>{
-    console.log('working')
+
     var form = document.createElement('form');
     var formtitle = document.createElement('h2');
+
     formtitle.innerText="Por favor rellené los campos del nuevo libro"
+
     //Title input
     var divTitle = document.createElement('div');
     var titlelbl = document.createElement('label');
     var titleinput = document.createElement('input');
     divTitle.classList.add("input-item")
-    titlelbl.for = "title";
-    titlelbl.innerText = "Titulo del libro: "
+    titleinput.id= "title";
+    titlelbl.htmlFor = "title";
+    titlelbl.innerText = "Titulo del libro: ";
+
+    //Creating the Title input
     divTitle.appendChild(titlelbl);
     divTitle.appendChild(titleinput);
 
+    //Author input
+    var divAuthor = document.createElement('div');
+    var authorlbl = document.createElement('label');
+    var authorInput = document.createElement('input')
+    divAuthor.classList.add('input-item');
+    authorInput.id = 'author';
+    authorlbl.htmlFor = 'author';
+    authorlbl.innerText = 'Autor: '
+
+    //Creating the author input
+    divAuthor.append(authorlbl, authorInput);
+
+    //Pages input
+    divPages = document.createElement('div');
+    pageslbl = document.createElement('label');
+    pagesInput = document.createElement('input');
+    divPages.classList.add('input-item');
+    pagesInput.id='pages';
+    pageslbl.htmlFor='pages';
+    pageslbl.innerText='Páginas del libro: ';
+    
+    //Creating the pages Input
+    divPages.append(pageslbl,pagesInput);
+
+    //Read Input
+
+    divRead = document.createElement('div');
+    reada = document.createElement('a');
+    trueInput=document.createElement('input');
+    truelbl = document.createElement('label');
+    falseInput=document.createElement('input');
+    falselbl = document.createElement('label');
+    br = document.createElement('br');
+    divRead.classList.add('input-item');
+    reada.innerText = 'Indica por favor si ya leíste el libro: '
+    trueInput.type = 'radio';
+    trueInput.name = 'read';
+    trueInput.id='true';
+    truelbl.innerText='Leído';
+    truelbl.htmlFor='true';
+    falseInput.type = 'radio';
+    falseInput.name = 'read';
+    falseInput.id='false';
+    falselbl.innerText = 'No leído';
+    falselbl.htmlFor = 'false';
+
+    //create read inputs
+
+    divRead.append(reada,br, truelbl, trueInput, falselbl,falseInput);
+
+    //Aditional info inputs
+    divInfo = document.createElement('div');
+    arealbl = document.createElement('lbl');
+    areabr = document.createElement('br');
+    infoinput = document.createElement('textarea');
+    arealbl.innerText = "Detalle la información adicional de este libro";
+    arealbl.htmlFor = 'info';
+    infoinput.id='info';
+    //create info inputs
+    divInfo.append(arealbl,areabr, infoinput);
+
+    //buttons
+    btnAceptar = document.createElement('input');
+    btnCancelar = document.createElement('button');
+    btnCancelar.innerText = 'Cancelar';
+
+    btnCancelar.addEventListener('click', (e)=>{
+        form.remove();
+    })
+
+
+    //Appending the form elements into the form
     form.appendChild(formtitle);
     form.appendChild(divTitle);
+    form.appendChild(divAuthor);
+    form.appendChild(divPages);
+    form.appendChild(divRead);
+    form.appendChild(divInfo);
+    form.appendChild(btnCancelar);
     
-    //Appends
+    //Append the form into the html
     container.appendChild(form);
 
+    
 })
  
 let myLibrary = [
