@@ -1,5 +1,5 @@
 const btn = document.querySelector('.newBook');
-const body = document.querySelector('body');
+const container = document.querySelector('.container');
 
 btn.addEventListener('click',(e)=>{
     
@@ -77,11 +77,15 @@ spawnLibrary = ()=>{
             read.innerText = "Sin Leer";
             read.classList.add('noleido');
         }
+        info.innerText = "Información relevante: " + myLibrary[i].info;
+
         div.appendChild(title);
         div.appendChild(author);
         div.appendChild(pages);
         div.appendChild(read);
-        body.appendChild(div);   
+        div.appendChild(info);
+        div.classList.add('card');
+        container.appendChild(div);   
 
     }
     
