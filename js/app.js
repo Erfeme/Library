@@ -1,4 +1,5 @@
 const btn = document.querySelector('.newBook');
+const body = document.querySelector('body');
 
 btn.addEventListener('click',(e)=>{
     
@@ -16,7 +17,7 @@ let myLibrary = [
         title: 'Las mil y una noches',
         author: 'Al Jamar Zajir',
         pages: 150,
-        read: true,
+        read: false,
         info: 'Una de las obras del islam más importantes de todos los tiempos, probablemente la más influyente en occidente'
     },
     {
@@ -30,7 +31,7 @@ let myLibrary = [
         title: 'Las mil y una noches',
         author: 'Al Jamar Zajir',
         pages: 150,
-        read: true,
+        read: false,
         info: 'Una de las obras del islam más importantes de todos los tiempos, probablemente la más influyente en occidente'
     },
     {
@@ -44,7 +45,7 @@ let myLibrary = [
         title: 'Las mil y una noches',
         author: 'Al Jamar Zajir',
         pages: 150,
-        read: true,
+        read: false,
         info: 'Una de las obras del islam más importantes de todos los tiempos, probablemente la más influyente en occidente'
     },
     {
@@ -57,10 +58,33 @@ let myLibrary = [
 ];
 
 spawnLibrary = ()=>{
-    var div = document.createElement('div');
-    var title = document.createElement('h2');
+
+    for(i = 0; i <myLibrary.length; i++){
+
+        var div = document.createElement('div');
+        var title = document.createElement('h2');
+        var author = document.createElement('p');
+        var pages = document.createElement('p');
+        var read = document.createElement('button');
+        var info = document.createElement('p');
+        title.innerText = myLibrary[i].title;
+        author.innerText = 'Autor: ' + myLibrary[i].author;
+        pages.innerText = 'Páginas: ' + myLibrary[i].pages;
+        if(myLibrary[i].read == true){
+            read.innerText="Leído";
+            read.classList.add('leido')
+        } else if(myLibrary[i].read == false){
+            read.innerText = "Sin Leer";
+            read.classList.add('noleido');
+        }
+        div.appendChild(title);
+        div.appendChild(author);
+        div.appendChild(pages);
+        div.appendChild(read);
+        body.appendChild(div);   
+
+    }
     
-    console.log(div);
 }
 
 function Library(){
