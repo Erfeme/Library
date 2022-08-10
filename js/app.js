@@ -105,7 +105,17 @@ btn.addEventListener('click',(e)=>{
     })
 
     btnAceptar.addEventListener('click',(e)=>{
-        
+        title = titleinput.value;
+        author = authorInput.value;
+        pages = pagesInput.value;
+        read = false;
+        if (trueInput.checked = true){
+            read = true;
+        }
+        info = infoinput.value;
+
+        libro = new Book(title,author,pages,read,info);
+        myLibrary.push(libro);
     })
 
     
@@ -128,7 +138,7 @@ btn.addEventListener('click',(e)=>{
     
 })
  
-let myLibrary = [
+let myLibrary = [/*
     {
         title: 'Las mil y una noches',
         author: 'Al Jamar Zajir',
@@ -177,7 +187,7 @@ let myLibrary = [
         pages: 150,
         read: true,
         info: 'Una de las obras del islam más importantes de todos los tiempos, probablemente la más influyente en occidente'
-    }
+    }*/
 ];
 
 spawnLibrary = ()=>{
