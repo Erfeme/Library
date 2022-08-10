@@ -2,11 +2,26 @@ const btn = document.querySelector('.newBook');
 const container = document.querySelector('.container');
 
 btn.addEventListener('click',(e)=>{
+    console.log('working')
     var form = document.createElement('form');
     var formtitle = document.createElement('h2');
+    formtitle.innerText="Por favor rellené los campos del nuevo libro"
+    //Title input
+    var divTitle = document.createElement('div');
     var titlelbl = document.createElement('label');
     var titleinput = document.createElement('input');
+    divTitle.classList.add("input-item")
+    titlelbl.for = "title";
+    titlelbl.innerText = "Titulo del libro: "
+    divTitle.appendChild(titlelbl);
+    divTitle.appendChild(titleinput);
+
+    form.appendChild(formtitle);
+    form.appendChild(divTitle);
     
+    //Appends
+    container.appendChild(form);
+
 })
  
 let myLibrary = [
