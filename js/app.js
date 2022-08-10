@@ -14,6 +14,7 @@ btn.addEventListener('click',(e)=>{
     var titleinput = document.createElement('input');
     divTitle.classList.add("input-item")
     titleinput.id= "title";
+    titleinput.required = true;
     titlelbl.htmlFor = "title";
     titlelbl.innerText = "Titulo del libro: ";
 
@@ -26,6 +27,7 @@ btn.addEventListener('click',(e)=>{
     var authorlbl = document.createElement('label');
     var authorInput = document.createElement('input')
     divAuthor.classList.add('input-item');
+    authorInput.required = true;
     authorInput.id = 'author';
     authorlbl.htmlFor = 'author';
     authorlbl.innerText = 'Autor: '
@@ -39,6 +41,8 @@ btn.addEventListener('click',(e)=>{
     pagesInput = document.createElement('input');
     divPages.classList.add('input-item');
     pagesInput.id='pages';
+    pagesInput.type = 'number';
+    pagesInput.required = true;
     pageslbl.htmlFor='pages';
     pageslbl.innerText='Páginas del libro: ';
     
@@ -63,6 +67,7 @@ btn.addEventListener('click',(e)=>{
     truelbl.htmlFor='true';
     falseInput.type = 'radio';
     falseInput.name = 'read';
+    falseInput.checked = 'true';
     falseInput.id='false';
     falselbl.innerText = 'No leído';
     falselbl.htmlFor = 'false';
@@ -76,21 +81,34 @@ btn.addEventListener('click',(e)=>{
     arealbl = document.createElement('lbl');
     areabr = document.createElement('br');
     infoinput = document.createElement('textarea');
+    infoinput.required = true;
     arealbl.innerText = "Detalle la información adicional de este libro";
     arealbl.htmlFor = 'info';
     infoinput.id='info';
+
     //create info inputs
     divInfo.append(arealbl,areabr, infoinput);
 
     //buttons
-    btnAceptar = document.createElement('input');
+    btnAceptar = document.createElement('button');
     btnCancelar = document.createElement('button');
     btnCancelar.innerText = 'Cancelar';
+    btnAceptar.innerText = 'Aceptar';
 
     btnCancelar.addEventListener('click', (e)=>{
+        btn.disabled = false;
         form.remove();
     })
 
+    form.addEventListener('submit',(e)=>{
+        e.preventDefault();
+    })
+
+    btnAceptar.addEventListener('click',(e)=>{
+        
+    })
+
+    
 
     //Appending the form elements into the form
     form.appendChild(formtitle);
@@ -100,9 +118,12 @@ btn.addEventListener('click',(e)=>{
     form.appendChild(divRead);
     form.appendChild(divInfo);
     form.appendChild(btnCancelar);
+    form.appendChild(btnAceptar);
     
     //Append the form into the html
     container.appendChild(form);
+
+    btn.disabled = true;
 
     
 })

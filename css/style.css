@@ -26,3 +26,10 @@ h1{
 .card h2{
     text-align:center;
 }
+
+input:invalid{
+    border: 2px solid red;
+}
+textarea:invalid{
+    border: 2px solid red;   
+}
